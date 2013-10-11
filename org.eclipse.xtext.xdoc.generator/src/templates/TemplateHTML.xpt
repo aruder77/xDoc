@@ -3,11 +3,17 @@
 
 «DEFINE main FOR Document -»
 «FILE this.name + ".html"-»
+<html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="book.css">
+<link rel="stylesheet" type="text/css" href="code.css">
+<link rel="stylesheet" type="text/css" href="novaAddon.css">
 </head>
 <body>
 «EXPAND genContent(this) FOREACH this.chapters»
 </body>
+</html>
 «ENDFILE-»
 «ENDDEFINE»
 
