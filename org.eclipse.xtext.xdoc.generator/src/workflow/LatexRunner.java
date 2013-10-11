@@ -57,7 +57,7 @@ public class LatexRunner implements IWorkflowComponent {
 		try {
 			Process p = Runtime.getRuntime().exec(pdfLatex + " -version");
 			synchronized (p) {
-				p.wait();
+				p.waitFor();
 			}
 			if (p.exitValue() != 0) {
 				log.error("failed to execute '" + pdfLatex + "'. Is it in your PATH?");
@@ -71,7 +71,7 @@ public class LatexRunner implements IWorkflowComponent {
 	public void invoke(IWorkflowContext ctx) {
 		for (Document doc : (List<Document>) ctx.get(inputSlot)) {
 			final String inputFile = doc.getName();
-			String[] cmdArgs = { pdfLatex, pdfLatexInteractionMode,
+			String[] cmdArgs = { pdfLatex, 
 					inputFile+".tex" };
 			try {
 				for (int i = 0; i < numberOfPasses; i++) {
