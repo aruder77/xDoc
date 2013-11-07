@@ -35,8 +35,24 @@
 											<url>file:${project.build.directory}/site</url>
 										</repository>
 									</source>
-									<append>true</append>
+									<append>false</append>
 									<destination>${publish-dest}</destination>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-to-tdsl-site</id>
+								<phase>install</phase>
+								<goals>
+									<goal>mirror</goal>
+								</goals>
+								<configuration>
+									<source>
+										<repository>
+											<url>file:${project.build.directory}/site</url>
+										</repository>
+									</source>
+									<append>true</append>
+									<destination>${tdsl-site}</destination>
 								</configuration>
 							</execution>
 						</executions>
@@ -47,7 +63,8 @@
 		<profile>
 			<id>xt</id>
 			<properties>
-				<publish-dest>/v/taskdev/sw/share/apache/htdocs/updates/latest</publish-dest>
+				<publish-dest>/v/taskdev/sw/share/apache/htdocs/updates/xDoc</publish-dest>
+				<tdsl-site>/v/taskdev/sw/share/apache/htdocs/updates/latest</tdsl-site>
 			</properties>
 		</profile>
 	</profiles>
