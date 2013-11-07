@@ -29,7 +29,7 @@
 						<configuration>
 							<source>
 								<repository>
-									<url>file:${project.build.directory}/repository</url>
+									<url>file:${project.build.directory}/site</url>
 								</repository>
 							</source>
 							<append>false</append>
